@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">NORTHLINK Logo</title>
+  <desc id="desc">A stylized NORTHLINK emblem with a sunrise, community figures, green fields, and a blue curved banner.</desc>
+  <defs>
+    <linearGradient id="sunGlow" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffd84d"/>
+      <stop offset="55%" stop-color="#f7b700"/>
+      <stop offset="100%" stop-color="#f59e00"/>
+    </linearGradient>
+    <linearGradient id="greenHill" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1f9d4d"/>
+      <stop offset="100%" stop-color="#0d7d43"/>
+    </linearGradient>
+    <linearGradient id="blueArc" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0c446d"/>
+      <stop offset="100%" stop-color="#143f76"/>
+    </linearGradient>
+    <linearGradient id="goldBand" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f4c34e"/>
+      <stop offset="100%" stop-color="#e4951b"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <circle cx="600" cy="150" r="118" fill="url(#sunGlow)"/>
+    <g fill="#f9c322" opacity="0.92">
+      <path d="M600 10 l18 70 l-18 -12 l-18 12 z"/>
+      <path d="M600 290 l18 -70 l-18 12 l-18 -12 z"/>
+      <path d="M490 150 l70 18 l-12 -18 l12 -18 z"/>
+      <path d="M710 150 l-70 18 l12 -18 l-12 -18 z"/>
+      <path d="M525 52 l18 70 l-10 -18 l-18 0 z" transform="rotate(-30 525 52)"/>
+      <path d="M675 52 l-18 70 l10 -18 l18 0 z" transform="rotate(30 675 52)"/>
+      <path d="M528 247 l18 -70 l-10 18 l-18 0 z" transform="rotate(30 528 247)"/>
+      <path d="M672 247 l-18 -70 l10 18 l18 0 z" transform="rotate(-30 672 247)"/>
+      <path d="M458 88 l18 60 l-12 -16 l-12 0 z" transform="rotate(-60 458 88)"/>
+      <path d="M742 88 l-18 60 l12 -16 l12 0 z" transform="rotate(60 742 88)"/>
+      <path d="M458 212 l18 -60 l-12 16 l-12 0 z" transform="rotate(60 458 212)"/>
+      <path d="M742 212 l-18 -60 l12 16 l12 0 z" transform="rotate(-60 742 212)"/>
+    </g>
+
+    <path d="M 504 228 C 552 190, 650 190, 696 228" fill="none" stroke="#f6bf1f" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+
+    <g transform="translate(0,0)">
+      <circle cx="455" cy="190" r="35" fill="#1a3f72"/>
+      <circle cx="600" cy="162" r="36" fill="#1a3f72"/>
+      <circle cx="750" cy="190" r="35" fill="#1a3f72"/>
+      <path d="M430 196 L430 235 Q430 260 455 260 L455 260 Q480 260 480 235 L480 196 Z" fill="#1a3f72"/>
+      <path d="M575 196 L575 235 Q575 260 600 260 L600 260 Q625 260 625 235 L625 196 Z" fill="#1a3f72"/>
+      <path d="M725 196 L725 235 Q725 260 750 260 L750 260 Q775 260 775 235 L775 196 Z" fill="#1a3f72"/>
+      <path d="M500 265 Q600 305 700 265" fill="none" stroke="#1a3f72" stroke-width="18" stroke-linecap="round"/>
+    </g>
+
+    <g>
+      <path d="M460 260 Q600 230 740 260 L810 280 Q590 360 390 280 Z" fill="url(#blueArc)"/>
+      <path d="M360 304 C 480 268, 720 268, 840 304 L900 390 Q600 465 300 390 Z" fill="url(#greenHill)"/>
+      <path d="M260 338 C 420 300, 780 300, 940 338 L1010 430 L190 430 Z" fill="url(#greenHill)"/>
+      <path d="M205 345 C 375 320, 830 318, 995 340" fill="none" stroke="#f0d14d" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+      <path d="M260 355 C 420 345, 780 345, 950 350" fill="none" stroke="#0e5d22" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
+      <path d="M0 420 C 260 400, 430 470, 600 420 C 770 370, 960 410, 1200 420 L1200 800 L0 800 Z" fill="url(#greenHill)" opacity="0.95"/>
+    </g>
+
+    <g>
+      <path d="M230 300 C 275 355, 330 390, 410 390 C 480 390, 470 310, 525 300 C 470 290, 440 260, 390 255 C 330 250, 270 270, 230 300 Z" fill="#f4c34e" opacity="0.9"/>
+      <path d="M900 300 C 960 350, 1020 390, 1090 390 C 1120 390, 1125 320, 1080 300 C 1018 280, 968 258, 930 255 C 890 252, 870 270, 900 300 Z" fill="#f4c34e" opacity="0.9"/>
+    </g>
+
+    <g transform="translate(0,20)">
+      <circle cx="450" cy="240" r="26" fill="#0f3d6f"/>
+      <path d="M420 215 C 435 190, 470 194, 480 215 L490 289 C 490 305, 478 316, 463 316 L437 316 C 421 316, 410 305, 410 289 Z" fill="#0f3d6f"/>
+      <path d="M410 318 L355 336 L370 374 L430 360 Z" fill="#0f3d6f"/>
+      <path d="M490 318 L545 336 L530 374 L470 360 Z" fill="#0f3d6f"/>
+
+      <circle cx="603" cy="240" r="26" fill="#0f3d6f"/>
+      <path d="M572 216 C 586 191, 622 192, 634 216 L643 290 C 643 306, 632 316, 615 316 L590 316 C 573 316, 563 306, 563 290 Z" fill="#0f3d6f"/>
+      <path d="M563 318 L510 340 L525 385 L585 362 Z" fill="#0f3d6f"/>
+      <path d="M642 318 L695 340 L680 385 L620 362 Z" fill="#0f3d6f"/>
+
+      <circle cx="750" cy="240" r="26" fill="#0f3d6f"/>
+      <path d="M720 216 C 736 191, 770 193, 780 216 L790 289 C 790 305, 778 317, 761 317 L735 317 C 719 317, 708 305, 708 289 Z" fill="#0f3d6f"/>
+      <path d="M710 320 L652 340 L670 382 L728 360 Z" fill="#0f3d6f"/>
+      <path d="M794 320 L846 340 L830 382 L773 360 Z" fill="#0f3d6f"/>
+    </g>
+
+    <g>
+      <path d="M280 460 C 330 438, 390 430, 465 452 C 440 470, 425 498, 428 528 C 356 522, 298 520, 260 500 Z" fill="#1f9d4d" opacity="0.92"/>
+      <path d="M900 460 C 952 438, 1010 430, 1085 452 C 1060 470, 1045 498, 1048 528 C 980 522, 922 520, 885 500 Z" fill="#1f9d4d" opacity="0.92"/>
+    </g>
+
+    <g>
+      <path d="M340 512 C 420 472, 500 472, 570 512 C 615 536, 640 538, 696 512 C 760 483, 845 478, 910 508 L970 558 L230 562 L340 512 Z" fill="#1d6a42" opacity="0.78"/>
+    </g>
+
+    <g font-family="Impact, 'Arial Black', sans-serif" text-anchor="middle">
+      <text x="600" y="640" font-size="170" fill="#0d3e67" font-weight="900" letter-spacing="1">NORTHLINK</text>
+    </g>
+  </g>
+</svg>
