@@ -1,40 +1,89 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NORTHLINK | Lango–Acholi Pilot Demo</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NORTHLINK — Lango–Acholi Regional Development Network. A proposed platform for opportunity access, livelihoods and community connection across Northern Uganda.">
+<title>NORTHLINK | Lango–Acholi Regional Development Network</title>
 <style>
-:root{--navy:#12345A;--green:#16834A;--mint:#E8F4EC;--gold:#EFBD4E}
-*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Arial;color:#1f2937;background:#f7faf8}
-header{background:var(--navy);color:white;padding:28px 6vw}header strong{font-size:1.7rem;letter-spacing:.08em}
-nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}nav a{color:white}
-main{max-width:1050px;margin:28px auto;padding:0 18px}.hero{background:var(--mint);padding:28px;border-radius:18px}
-h1,h2{color:var(--navy)}.tag{display:inline-block;background:var(--gold);padding:4px 10px;border-radius:20px;font-size:.85rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
-.card{background:white;border:1px solid #e5e7eb;border-radius:14px;padding:18px}
-button{background:var(--green);color:white;border:0;border-radius:8px;padding:10px 14px;cursor:pointer}
-.notice{border-left:4px solid var(--gold);padding:12px;background:#fff8e6}
-footer{padding:24px;text-align:center;color:#64748b}
-</style></head><body>
-<header><strong>NORTHLINK</strong><div>Regional Development Network</div>
-<nav><a href="#areas">Pilot areas</a><a href="#pillars">What it connects</a><a href="#demo">Explore demo</a></nav></header>
-<main><section class="hero"><span class="tag">PROTOTYPE • SAMPLE DATA ONLY</span>
-<h1>Connecting communities to opportunities, services and livelihoods</h1>
-<p>A proposed Lango–Acholi pilot, designed as the first step toward a wider Northern Uganda development network.</p>
-<p><b>Proposed pilot locations:</b> Amolatar, Lira, Otuke and Gulu. Final sites depend on consultation and feasibility.</p></section>
-<section id="areas"><h2>Proposed pilot areas</h2><div class="grid">
-<div class="card"><h3>Amolatar</h3><p>Lango • Proposed pilot location</p></div>
-<div class="card"><h3>Lira</h3><p>Lango • Proposed pilot location</p></div>
-<div class="card"><h3>Otuke</h3><p>Lango • Proposed pilot location</p></div>
-<div class="card"><h3>Gulu</h3><p>Acholi • Proposed pilot location</p></div></div></section>
-<section id="pillars"><h2>What NORTHLINK aims to connect</h2><div class="grid">
-<div class="card"><h3>Opportunities</h3><p>Verified jobs, training, enterprise and support information.</p></div>
-<div class="card"><h3>Skills and livelihoods</h3><p>Links to practical skills, mentorship and livelihood pathways.</p></div>
-<div class="card"><h3>Agriculture and markets</h3><p>Useful market and agricultural information from reliable sources.</p></div>
-<div class="card"><h3>Services and referrals</h3><p>Service navigation and consent-based referrals only when providers agree.</p></div>
-<div class="card"><h3>Community voice</h3><p>Accessible feedback and needs reporting.</p></div>
-<div class="card"><h3>Local partnerships</h3><p>Coordination with community groups and service providers.</p></div></div></section>
-<section id="demo"><h2>Explore the demonstration</h2><div class="card">
-<p>This button demonstrates a simple interaction. It does not submit information or contact a real provider.</p>
-<button onclick="document.getElementById('demo-result').textContent='Demo opened: sample opportunity listings would appear here in a fuller prototype.'">Explore sample opportunities</button>
-<p id="demo-result" aria-live="polite"></p></div></section>
-<p class="notice"><b>Important:</b> This is a concept demonstration. No real services, partners, funding, vacancies or referrals are confirmed. Do not enter personal or sensitive information.</p>
-</main><footer>NORTHLINK • Proposed Lango–Acholi Pilot • For consultation and validation</footer></body></html>
+:root{--navy:#102b46;--blue:#1769aa;--green:#21865b;--pale:#eef5f8;--ink:#1d2b36;--muted:#5b6b78;--white:#fff;--line:#dbe5eb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+header{background:var(--navy);color:#fff;padding:14px 5%;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #0002}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:auto}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em}.brand img{width:48px;height:48px;object-fit:contain;background:#fff;border-radius:50%;padding:3px}.brand-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--green);font-weight:900;font-size:23px}
+nav{display:flex;flex-wrap:wrap;gap:15px}nav a{color:#fff;text-decoration:none;font-size:.9rem}nav a:hover{text-decoration:underline}
+.hero{background:linear-gradient(125deg,#102b46,#1769aa);color:#fff;padding:76px 5% 70px}.wrap{max-width:1180px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:bold;color:#b8e4d0}.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;max-width:850px;margin:14px 0}.hero p{font-size:1.15rem;max-width:780px;color:#e4eef5}.status{display:inline-block;border:1px solid #b8d9ec;border-radius:30px;padding:7px 13px;font-size:.78rem;margin-top:12px}
+.btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:12px 18px;border-radius:7px;font-weight:bold;margin:10px 8px 0 0}.btn.secondary{background:#fff;color:var(--navy)}
+section{padding:58px 5%}.section-inner{max-width:1180px;margin:auto}h2{color:var(--navy);font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;margin:0 0 18px}h3{color:var(--navy);margin:0 0 8px}.lead{font-size:1.1rem;color:var(--muted);max-width:900px}.soft{background:var(--pale)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px;margin-top:25px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:21px;box-shadow:0 4px 16px #102b460b}.card p{margin:7px 0 0;color:var(--muted)}.number{font-size:1.7rem;font-weight:800;color:var(--green)}
+.region{margin-top:28px}.region h3{border-bottom:2px solid var(--green);padding-bottom:8px}.districts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:14px}.district{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;font-weight:600}
+.pillars .card{border-top:4px solid var(--green)}.phase{display:flex;gap:15px;align-items:flex-start}.phase .number{min-width:42px}
+.note{border-left:4px solid #d39b36;background:#fff8e9;padding:15px 18px;border-radius:5px;margin:20px 0;color:#604a20}
+details{background:#fff;border:1px solid var(--line);border-radius:9px;padding:15px 18px;margin:10px 0}summary{font-weight:700;color:var(--navy);cursor:pointer}
+footer{background:var(--navy);color:#dce8f0;padding:35px 5%}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer p{margin:5px 0}
+.small{font-size:.9rem;color:var(--muted)}.footer-small{font-size:.85rem;color:#c1d1dc}
+@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}nav{gap:10px}.hero{padding-top:50px}section{padding:42px 5%}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">
+<img src="assets/northlink-logo.png" alt="NORTHLINK logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<span class="brand-mark" style="display:none">N</span>
+<span>NORTHLINK</span></div>
+<nav aria-label="Main navigation"><a href="#about">About</a><a href="#regions">Coverage</a><a href="#pillars">Focus areas</a><a href="#approach">Approach</a><a href="#proposal">Proposal</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap"><div class="eyebrow">Lango–Acholi Regional Development Network</div>
+<h1>Connecting communities. Creating opportunities.</h1>
+<p>A proposed regional platform to improve access to trusted information, livelihoods opportunities, community priorities and relevant services across Lango and Acholi in Northern Uganda.</p>
+<span class="status">CONCEPT PROPOSAL • DRAFT FOR STAKEHOLDER REVIEW</span><br>
+<a class="btn" href="#proposal">Explore the proposal</a><a class="btn secondary" href="#regions">View all 19 locations</a></div></div>
+<section id="about"><div class="section-inner"><h2>About NORTHLINK</h2>
+<p class="lead">NORTHLINK is a proposed regional development platform designed to help people discover opportunities, access practical livelihood information, communicate community priorities and navigate relevant services. It responds to an information and coordination challenge that must first be validated through community engagement and documentary review.</p>
+<div class="note"><strong>Important status statement:</strong> NORTHLINK is a proposed initiative and prototype. It is not currently represented as a registered organisation, funded programme, approved public service or confirmed partnership. Listings and relationships must be verified before being presented as confirmed.</div>
+<div class="grid"><article class="card"><div class="number">01</div><h3>Overall goal</h3><p>Improve access to trusted information and strengthen connections between communities, opportunities and relevant support systems across Lango and Acholi.</p></article>
+<article class="card"><div class="number">02</div><h3>Community-led</h3><p>Listen to residents and stakeholders before finalising features, priorities or district profiles.</p></article>
+<article class="card"><div class="number">03</div><h3>Evidence-informed</h3><p>Test needs, usability, information quality and outcomes before deciding whether and how to scale.</p></article></div></div></section>
+<section class="soft" id="regions"><div class="section-inner"><h2>Regional coverage</h2><p class="lead">The long-term concept covers 19 administrative selections across the two sub-regions. This geographic scope does not mean all locations will receive equal or immediate service coverage during an initial pilot.</p>
+<div class="region"><h3>Lango sub-region — 10 locations</h3><div class="districts">
+<div class="district">Alebtong</div><div class="district">Amolatar</div><div class="district">Apac</div><div class="district">Dokolo</div><div class="district">Kole</div><div class="district">Kwania</div><div class="district">Lira District</div><div class="district">Lira City</div><div class="district">Otuke</div><div class="district">Oyam</div></div></div>
+<div class="region"><h3>Acholi sub-region — 9 locations</h3><div class="districts">
+<div class="district">Agago</div><div class="district">Amuru</div><div class="district">Gulu District</div><div class="district">Gulu City</div><div class="district">Kitgum</div><div class="district">Lamwo</div><div class="district">Nwoya</div><div class="district">Omoro</div><div class="district">Pader</div></div></div>
+</div></section>
+<section id="pillars"><div class="section-inner"><h2>Six connected focus areas</h2><p class="lead">The proposed platform brings together complementary information and connection functions.</p>
+<div class="grid pillars">
+<article class="card"><h3>Verified opportunities</h3><p>Employment, training, scholarships and enterprise support, showing source, eligibility, deadline and verification date.</p></article>
+<article class="card"><h3>Skills and livelihoods</h3><p>Signposting to skills development, mentorship, entrepreneurship and practical livelihood resources.</p></article>
+<article class="card"><h3>Agriculture and markets</h3><p>Agricultural information, market connections and relevant programmes, subject to verification and local relevance.</p></article>
+<article class="card"><h3>Community voice</h3><p>Safe and transparent ways to collect community priorities and feedback, with privacy and consent safeguards.</p></article>
+<article class="card"><h3>Service navigation</h3><p>Information about relevant services and organisations. Referrals only where providers and safe processes are confirmed.</p></article>
+<article class="card"><h3>Partnership coordination</h3><p>A future coordination layer for local institutions, civil society, private sector and development actors.</p></article>
+</div></div></section>
+<section class="soft" id="approach"><div class="section-inner"><h2>Phased implementation approach</h2><p class="lead">The project should begin with discovery and validation, then proceed only as scope, safeguards, capacity and resources become clear.</p>
+<div class="grid">
+<article class="card phase"><div class="number">1</div><div><h3>Discovery and validation</h3><p>Stakeholder mapping, community listening, user interviews and review of relevant district and national plans.</p></div></article>
+<article class="card phase"><div class="number">2</div><div><h3>Pilot design</h3><p>Select a feasible pilot area and user groups; define services, verification, privacy, safeguarding and monitoring.</p></div></article>
+<article class="card phase"><div class="number">3</div><div><h3>Minimum viable platform</h3><p>Improve the prototype through user testing and build only necessary functions, including moderated listings.</p></div></article>
+<article class="card phase"><div class="number">4</div><div><h3>Controlled pilot</h3><p>Test with a limited group and confirmed information contributors; monitor quality, access and complaints.</p></div></article>
+<article class="card phase"><div class="number">5</div><div><h3>Review and scale decision</h3><p>Assess evidence with users and stakeholders; revise, pause or expand according to capacity and resources.</p></div></article>
+</div></div></section>
+<section id="proposal"><div class="section-inner"><h2>Project concept proposal</h2><p class="lead">The following sections preserve the proposal's main structure and intended commitments. Detailed operational plans, budget and geographic sequence remain subject to discovery and validation.</p>
+<details open><summary>1. Executive summary</summary><p>NORTHLINK is a proposed regional development platform designed to improve how people across Lango and Acholi discover opportunities, access practical livelihood information, communicate community priorities and navigate relevant services. It proposes six connected areas: verified opportunities; skills and livelihoods; agriculture and markets; community voice; service navigation; and partnership coordination. The first phase should validate needs and test a carefully scoped pilot before expansion.</p></details>
+<details><summary>2. Background and rationale</summary><p>Information about employment, training, markets and support services may be spread across noticeboards, social media, informal networks and institutional channels. This can make it difficult to compare opportunities, establish whether a listing is genuine or current, understand eligibility or identify where to seek further information. The scale and nature of these barriers must be established through consultations and documentary review rather than assumed.</p></details>
+<details><summary>3. Problem statement</summary><p>There is a need to investigate whether people and local organisations across Lango and Acholi face avoidable barriers in finding reliable, timely and relevant information about opportunities, livelihoods and services, and whether a coordinated digital and community-based approach could help.</p></details>
+<details><summary>4. Goal and objectives</summary><p><strong>Goal:</strong> Improve access to trusted information and strengthen connections between communities, opportunities and relevant support systems across Lango and Acholi.</p><ul><li>Assess information and coordination needs with residents and stakeholders.</li><li>Design and test an accessible platform for verified opportunities and practical livelihood information.</li><li>Improve signposting to skills, agriculture, enterprise and service resources.</li><li>Establish a responsible process for receiving community feedback and identifying priorities.</li><li>Develop a transparent network of potential contributors and service partners, subject to due diligence and formal agreement.</li><li>Monitor use, information quality, user experience and outcomes.</li></ul></details>
+<details><summary>5. Proposed geographic scope</summary><p>The long-term design covers 19 administrative selections: Alebtong, Amolatar, Apac, Dokolo, Kole, Kwania, Lira District, Lira City, Otuke and Oyam in Lango; Agago, Amuru, Gulu District, Gulu City, Kitgum, Lamwo, Nwoya, Omoro and Pader in Acholi. Implementation will be phased.</p></details>
+<details><summary>6. Target users and beneficiaries</summary><ul><li>Young people, school leavers, graduates and jobseekers.</li><li>Farmers, producer groups and rural enterprises.</li><li>Micro and small business owners and entrepreneurs.</li><li>Women, youth groups and community-based organisations.</li><li>Residents seeking information about services and routes to providers.</li><li>Employers, training institutions, civil society organisations, local government and development actors who may contribute verified information.</li></ul><p>Consultation should identify barriers affecting women, persons with disabilities, remote communities and people with limited internet access.</p></details>
+<details><summary>7. Proposed intervention components</summary><p>The six focus areas are verified opportunities; skills and livelihoods; agriculture and markets; community voice; service navigation; and partnership coordination. All published information and any referral pathway require appropriate verification and safeguards.</p></details>
+<details><summary>8. Delivery approach and operating principles</summary><ul><li>Community-led design and consultation.</li><li>Verification before publication, including source, legitimacy, eligibility and dates.</li><li>Do no harm; protect personal and sensitive information.</li><li>Accessibility through low-bandwidth design, plain language and exploration of offline or assisted access.</li><li>Transparency about confirmed, proposed, user-submitted and unverified information.</li><li>Accountability through reporting, correction and review processes.</li><li>Partnership integrity: claim partner status only after formal confirmation.</li></ul></details>
+<details><summary>9. Proposed implementation phases</summary><p>Phase 1: Discovery and validation. Phase 2: Pilot design. Phase 3: Minimum viable platform. Phase 4: Controlled pilot. Phase 5: Review and scale decision. Detailed calendar and geographic sequence should follow discovery. A 6–12 month planning window may be considered for costing, but is not a confirmed commitment.</p></details>
+<details><summary>10. Governance and management</summary><p>Awongo Duncan is identified as Founder and Innovation Lead for the proposed initiative. The project is currently founder-led. Governance should be developed before implementation, including oversight, finance, safeguarding, data protection, technical administration and complaints responsibilities. Technical support, community facilitators, district focal persons and an advisory or governance group are proposed roles, not confirmed appointments.</p></details>
+<details><summary>11. Monitoring, evaluation and learning</summary><p>Establish a baseline during discovery and set targets only after pilot scope and baseline are known. Potential indicators include reach and accessibility; information quality; engagement and response time; user-reported usefulness; consent-based connections through confirmed providers; complaints resolved; and improvements made from evidence. Disaggregate data only where necessary, safe, proportionate and consent-supported.</p></details>
+<details><summary>12. Safeguarding, privacy and risk management</summary><ul><li>Reduce misinformation and fraud through source checks, verification dates, moderation and reporting.</li><li>Minimise personal data, use access controls and establish retention and deletion procedures.</li><li>Do not promise unsafe or unverified referrals.</li><li>Address digital exclusion through low-bandwidth, plain language and assisted access options.</li><li>Build trust through early engagement and transparent correction processes.</li><li>Expand only when evidence, resources and local arrangements support it.</li><li>Never imply institutional endorsement or partnership without confirmation.</li></ul></details>
+<details><summary>13. Sustainability and future development</summary><p>Sustainability depends on demonstrated usefulness, community trust, manageable costs, reliable information contributors and clear governance. Potential future options include institutional collaboration, grants, CSR, in-kind technical assistance and carefully designed service agreements; none is confirmed. Technical development should be incremental and based on tested requirements.</p></details>
+<details><summary>14. Indicative resource requirements and budget development</summary><p>No costed budget is set at concept stage because pilot locations, duration, staffing, hosting, fieldwork and partner contributions have not been validated. A later budget should consider consultations, transport, facilitation, research, translation, website development, hosting, security, maintenance, verification, moderation, safeguarding, privacy, monitoring and administration.</p></details>
+<details><summary>15. Support and collaboration sought</summary><p>Exploratory discussions are sought with community representatives, local governments, civil society organisations, youth and farmer groups, training institutions, employers, technology professionals and development partners. The current request is for feedback, technical advice, validation opportunities and possible collaboration. Formal partnerships and funding require further discussion and written confirmation.</p></details>
+<details><summary>16. Conclusion</summary><p>NORTHLINK offers a practical concept for connecting communities in Lango and Acholi to better-organised information and potential opportunities. Its value depends on responding to local priorities, maintaining accurate and current information, and operating safely and sustainably. The next step is structured discovery and validation, followed by a limited pilot with clear responsibilities and measurable learning.</p></details>
+<details><summary>17. Contact and document status</summary><p><strong>Project:</strong> NORTHLINK — Lango–Acholi Regional Development Network<br><strong>Founder and Innovation Lead:</strong> Awongo Duncan<br><strong>Project email and telephone:</strong> To be added after an official contact is established.<br><strong>Document status:</strong> Draft concept proposal for discussion; not a funding award, implementation contract or endorsement.</p></details>
+</div></section>
+<section class="soft"><div class="section-inner"><h2>Responsible use and next steps</h2><p class="lead">Before an operational pilot, NORTHLINK should complete stakeholder validation, define governance and accountability, establish verification and safeguarding procedures, and prepare a realistic costed plan. This website is an informational prototype, not a live opportunity database or referral service.</p></div></section>
+</main>
+<footer><div class="wrap"><div><strong>NORTHLINK</strong><p>Lango–Acholi Regional Development Network</p><p>Connecting Communities, Creating Opportunities</p></div><div class="footer-small"><p>Founder &amp; Innovation Lead: Awongo Duncan</p><p>Concept proposal • Draft for stakeholder review</p><p>© NORTHLINK concept prototype</p></div></div></footer>
+</body></html>
