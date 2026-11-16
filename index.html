@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NORTHLINK | Lango–Acholi Pilot Demo</title>
+<style>
+:root{--navy:#12345A;--green:#16834A;--mint:#E8F4EC;--gold:#EFBD4E}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Arial;color:#1f2937;background:#f7faf8}
+header{background:var(--navy);color:white;padding:28px 6vw}header strong{font-size:1.7rem;letter-spacing:.08em}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}nav a{color:white}
+main{max-width:1050px;margin:28px auto;padding:0 18px}.hero{background:var(--mint);padding:28px;border-radius:18px}
+h1,h2{color:var(--navy)}.tag{display:inline-block;background:var(--gold);padding:4px 10px;border-radius:20px;font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
+.card{background:white;border:1px solid #e5e7eb;border-radius:14px;padding:18px}
+button{background:var(--green);color:white;border:0;border-radius:8px;padding:10px 14px;cursor:pointer}
+.notice{border-left:4px solid var(--gold);padding:12px;background:#fff8e6}
+footer{padding:24px;text-align:center;color:#64748b}
+</style></head><body>
+<header><strong>NORTHLINK</strong><div>Regional Development Network</div>
+<nav><a href="#areas">Pilot areas</a><a href="#pillars">What it connects</a><a href="#demo">Explore demo</a></nav></header>
+<main><section class="hero"><span class="tag">PROTOTYPE • SAMPLE DATA ONLY</span>
+<h1>Connecting communities to opportunities, services and livelihoods</h1>
+<p>A proposed Lango–Acholi pilot, designed as the first step toward a wider Northern Uganda development network.</p>
+<p><b>Proposed pilot locations:</b> Amolatar, Lira, Otuke and Gulu. Final sites depend on consultation and feasibility.</p></section>
+<section id="areas"><h2>Proposed pilot areas</h2><div class="grid">
+<div class="card"><h3>Amolatar</h3><p>Lango • Proposed pilot location</p></div>
+<div class="card"><h3>Lira</h3><p>Lango • Proposed pilot location</p></div>
+<div class="card"><h3>Otuke</h3><p>Lango • Proposed pilot location</p></div>
+<div class="card"><h3>Gulu</h3><p>Acholi • Proposed pilot location</p></div></div></section>
+<section id="pillars"><h2>What NORTHLINK aims to connect</h2><div class="grid">
+<div class="card"><h3>Opportunities</h3><p>Verified jobs, training, enterprise and support information.</p></div>
+<div class="card"><h3>Skills and livelihoods</h3><p>Links to practical skills, mentorship and livelihood pathways.</p></div>
+<div class="card"><h3>Agriculture and markets</h3><p>Useful market and agricultural information from reliable sources.</p></div>
+<div class="card"><h3>Services and referrals</h3><p>Service navigation and consent-based referrals only when providers agree.</p></div>
+<div class="card"><h3>Community voice</h3><p>Accessible feedback and needs reporting.</p></div>
+<div class="card"><h3>Local partnerships</h3><p>Coordination with community groups and service providers.</p></div></div></section>
+<section id="demo"><h2>Explore the demonstration</h2><div class="card">
+<p>This button demonstrates a simple interaction. It does not submit information or contact a real provider.</p>
+<button onclick="document.getElementById('demo-result').textContent='Demo opened: sample opportunity listings would appear here in a fuller prototype.'">Explore sample opportunities</button>
+<p id="demo-result" aria-live="polite"></p></div></section>
+<p class="notice"><b>Important:</b> This is a concept demonstration. No real services, partners, funding, vacancies or referrals are confirmed. Do not enter personal or sensitive information.</p>
+</main><footer>NORTHLINK • Proposed Lango–Acholi Pilot • For consultation and validation</footer></body></html>
