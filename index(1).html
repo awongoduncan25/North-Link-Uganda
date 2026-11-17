@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <title>Kampala Fix — Report it. Track it. Fix it.</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{--green:#123b35;--green2:#176b55;--lime:#d9f36a;--ink:#172522;--muted:#64736e;--line:#e2e9e5;--paper:#f5f8f5;--white:#fff;--red:#b54735}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    header{background:var(--green);color:white;padding:18px max(18px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}.mark{width:43px;height:43px;border-radius:14px;background:var(--lime);color:var(--green);display:grid;place-items:center;font-weight:900;font-size:22px}.brand strong{display:block;font-size:19px;letter-spacing:.2px}.brand small{color:#d2e4dc}
+    nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;text-decoration:none;font-weight:650;font-size:14px}
+    main{max-width:1120px;margin:0 auto;padding:28px 18px 60px}.hero{background:linear-gradient(120deg,#123b35,#1b6653);color:white;padding:30px;border-radius:22px;display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:center}
+    .eyebrow{color:var(--lime);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:8px 0 12px}.hero p{color:#e0eee8;max-width:600px;margin:0}.hero-stat{border:1px solid #ffffff35;background:#ffffff12;border-radius:17px;padding:20px}.hero-stat b{display:block;font-size:30px;color:var(--lime)}.hero-stat span{color:#e0eee8;font-size:13px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat,.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:18px}.stat span{display:block;color:var(--muted);font-size:13px}.stat b{font-size:25px}
+    .layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.panel h2{font-size:20px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 17px}
+    label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}input,select,textarea{width:100%;border:1px solid #d6e0da;border-radius:10px;padding:12px;font:inherit;background:#fff;color:var(--ink)}textarea{min-height:88px;resize:vertical}input:focus,select:focus,textarea:focus{outline:2px solid #b8d5c9;border-color:var(--green2)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;background:var(--green2);color:white}.btn:disabled{opacity:.55;cursor:wait}.btn.secondary{background:#e9f1ec;color:var(--green)}.btn.full{width:100%;margin-top:15px}.hint{font-size:12px;color:var(--muted);margin-top:6px}.notice{padding:11px 13px;border-radius:10px;background:#eef5ef;color:#234d3e;font-size:13px;margin-top:12px;display:none}.notice.error{background:#fff0ed;color:#8d3024}
+    #map{height:350px;border-radius:13px;border:1px solid var(--line);z-index:1}.toolbar{display:flex;gap:8px;margin:14px 0}.toolbar input{flex:1}.report-list{display:grid;gap:10px;margin-top:14px}.report{border:1px solid var(--line);border-radius:12px;padding:12px}.report-top{display:flex;justify-content:space-between;gap:8px}.report h3{font-size:15px;margin:0}.report p{font-size:13px;color:var(--muted);margin:5px 0}.pill{display:inline-block;border-radius:99px;padding:3px 8px;font-size:11px;font-weight:800;background:#edf3ef;color:#315c4b;text-transform:capitalize}.pill.resolved{background:#e5f5df;color:#326328}.pill.progress,.pill.assigned{background:#fff4d8;color:#79591b}
+    .track-result{margin-top:12px}.empty{color:var(--muted);font-size:13px;padding:12px;background:#f7faf8;border-radius:10px}.footer{margin-top:25px;text-align:center;color:var(--muted);font-size:12px}
+    @media(max-width:760px){header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px}.stat b{font-size:21px}.two{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="mark">K</div><div><strong>Kampala Fix</strong><small>Report it. Track it. Fix it.</small></div></div>
+  <nav><a href="#report">Report</a><a href="#map-section">Map</a><a href="#track">Track</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div><div class="eyebrow">Cleaner neighbourhoods start here</div><h1>See a problem?<br>Help fix it.</h1><p>Report rubbish hotspots and other waste concerns in Kampala. Add a nearby landmark, share the location and follow your report using its reference code.</p></div>
+    <div class="hero-stat"><b id="hero-count">—</b><span>reports currently visible in the pilot database</span></div>
+  </section>
+  <section class="stats">
+    <div class="stat"><span>Total reports</span><b id="total-count">—</b></div>
+    <div class="stat"><span>Being handled</span><b id="active-count">—</b></div>
+    <div class="stat"><span>Resolved</span><b id="resolved-count">—</b></div>
+  </section>
+  <div class="layout">
+    <section class="panel" id="report">
+      <h2>Report a problem</h2><p class="sub">Give clear details so the issue can be identified.</p>
+      <form id="report-form">
+        <div class="two"><div><label for="name">Your name</label><input id="name" maxlength="90" required placeholder="Your name"></div><div><label for="phone">Phone number</label><input id="phone" maxlength="30" required placeholder="07… or +256…"></div></div>
+        <label for="title">What is the problem?</label><input id="title" maxlength="120" required placeholder="e.g. Rubbish piling up near the road">
+        <div class="two"><div><label for="category">Category</label><select id="category"><option>Rubbish hotspot</option><option>Illegal dumping</option><option>Blocked drainage</option><option>Overflowing bin</option><option>Other waste concern</option></select></div><div><label for="landmark">Area / nearest landmark</label><input id="landmark" maxlength="150" required placeholder="e.g. Kikoni market"></div></div>
+        <label for="description">More details (optional)</label><textarea id="description" maxlength="1000" placeholder="Describe the location and the problem…"></textarea>
+        <label for="photo">Photo (optional)</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp">
+        <div class="hint">Please avoid including people's faces or private information in photos. Maximum photo size: 5 MB.</div>
+        <div class="two"><div><label for="lat">Latitude</label><input id="lat" inputmode="decimal" placeholder="Tap location button" required></div><div><label for="lng">Longitude</label><input id="lng" inputmode="decimal" placeholder="Tap location button" required></div></div>
+        <button class="btn secondary" type="button" id="locate">Use my current location</button>
+        <button class="btn full" id="submit-btn" type="submit">Submit report</button>
+        <div class="notice" id="form-notice" role="status"></div>
+      </form>
+    </section>
+    <section class="panel" id="map-section">
+      <h2>Community report map</h2><p class="sub">Only location and issue details are shown here. Personal contact details are not displayed.</p>
+      <div id="map"></div>
+      <div class="toolbar"><button class="btn secondary" id="refresh">Refresh reports</button></div>
+      <div class="report-list" id="recent-list"><div class="empty">Loading reports…</div></div>
+    </section>
+  </div>
+  <section class="panel" id="track" style="margin-top:18px">
+    <h2>Track your report</h2><p class="sub">Enter the reference code shown after you submit a report.</p>
+    <div class="toolbar"><input id="track-code" placeholder="e.g. KF-ABC123"><button class="btn" id="track-btn">Track</button></div>
+    <div class="track-result" id="track-result"></div>
+  </section>
+  <p class="footer">Kampala Fix is a community pilot prototype. It is not an official KCCA reporting service. Do not use it for emergencies.</p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(() => {
+  // These are public browser credentials. Never put a Supabase secret/service-role key here.
+  const SUPABASE_URL = "https://wfunrykfhjcwlqiskcsv.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_z23_Se6O-xjnCvocNt33Lw_4avIoViR";
+  const PHOTO_BUCKET = "report-photos";
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const $ = id => document.getElementById(id);
+  const safeFields = "id,ref,title,description,category,lat,lng,photo_url,status,ack_at,resolved_at,created_at";
+  const map = L.map("map").setView([0.3136, 32.5811], 12);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19, attribution:"© OpenStreetMap"}).addTo(map);
+  const markers = L.layerGroup().addTo(map);
+  let allReports = [];
+
+  function notice(message, isError=false) {
+    const el=$("form-notice"); el.textContent=message; el.className="notice"+(isError?" error":""); el.style.display="block";
+  }
+  function makeRef() {
+    const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let out="KF-";
+    for(let i=0;i<6;i++) out+=chars[Math.floor(Math.random()*chars.length)];
+    return out;
+  }
+  function statusText(s){return (s||"new").replace("_"," ");}
+  function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+  function renderReport(r){
+    const date=r.created_at?new Date(r.created_at).toLocaleString():"";
+    return `<article class="report"><div class="report-top"><h3>${esc(r.title)}</h3><span class="pill ${esc(r.status)}">${esc(statusText(r.status))}</span></div><p>${esc(r.category)} · ${esc(r.ref)}</p><p>${esc(r.description||"No extra details provided.")}</p><p>${date}</p>${r.photo_url?`<p><a href="${esc(r.photo_url)}" target="_blank" rel="noopener">View attached photo</a></p>`:""}</article>`;
+  }
+  function updateStats(rows){
+    $("hero-count").textContent=rows.length; $("total-count").textContent=rows.length;
+    $("active-count").textContent=rows.filter(r=>["assigned","progress"].includes(r.status)).length;
+    $("resolved-count").textContent=rows.filter(r=>r.status==="resolved").length;
+  }
+  async function loadReports(){
+    $("recent-list").innerHTML='<div class="empty">Loading reports…</div>';
+    const {data,error}=await supabase.from("reports").select(safeFields).order("created_at",{ascending:false}).limit(50);
+    if(error){$("recent-list").innerHTML='<div class="empty">Could not load reports. Check your Supabase table permissions and RLS policies.</div>';updateStats([]);return;}
+    allReports=data||[]; updateStats(allReports);
+    $("recent-list").innerHTML=allReports.length?allReports.slice(0,6).map(renderReport).join(""):'<div class="empty">No reports have been submitted yet.</div>';
+    markers.clearLayers();
+    allReports.forEach(r=>{
+      if(Number.isFinite(Number(r.lat))&&Number.isFinite(Number(r.lng))){
+        const m=L.marker([Number(r.lat),Number(r.lng)]).bindPopup(`<b>${esc(r.title)}</b><br>${esc(r.category)}<br>Ref: ${esc(r.ref)}<br>Status: ${esc(statusText(r.status))}`);
+        markers.addLayer(m);
+      }
+    });
+  }
+  $("locate").addEventListener("click",()=>{
+    if(!navigator.geolocation){notice("Location is not supported by this browser.",true);return;}
+    $("locate").disabled=true;$("locate").textContent="Finding location…";
+    navigator.geolocation.getCurrentPosition(pos=>{
+      $("lat").value=pos.coords.latitude.toFixed(6);$("lng").value=pos.coords.longitude.toFixed(6);
+      map.setView([pos.coords.latitude,pos.coords.longitude],16);
+      $("locate").disabled=false;$("locate").textContent="Use my current location";
+    },err=>{
+      notice("Could not get your location. Allow location permission or enter coordinates manually.",true);
+      $("locate").disabled=false;$("locate").textContent="Use my current location";
+    },{enableHighAccuracy:true,timeout:12000});
+  });
+  $("report-form").addEventListener("submit",async e=>{
+    e.preventDefault(); const btn=$("submit-btn"); btn.disabled=true;btn.textContent="Submitting…";
+    try{
+      const lat=Number($("lat").value),lng=Number($("lng").value);
+      if(!Number.isFinite(lat)||!Number.isFinite(lng)||Math.abs(lat)>90||Math.abs(lng)>180) throw new Error("Enter a valid location or use the location button.");
+      const file=$("photo").files[0]; if(file&&file.size>5*1024*1024) throw new Error("Photo must be 5 MB or smaller.");
+      if(file&&!["image/jpeg","image/png","image/webp"].includes(file.type)) throw new Error("Use a JPG, PNG or WebP photo.");
+      let photoUrl=null;
+      if(file){
+        const ext=file.type==="image/png"?"png":file.type==="image/webp"?"webp":"jpg";
+        const path=`${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+        const up=await supabase.storage.from(PHOTO_BUCKET).upload(path,file,{contentType:file.type,upsert:false});
+        if(up.error) throw new Error("Photo upload failed. Create the report-photos bucket and its upload policy, or submit without a photo.");
+        const pub=supabase.storage.from(PHOTO_BUCKET).getPublicUrl(path); photoUrl=pub.data.publicUrl;
+      }
+      const ref=makeRef();
+      const payload={ref,name:$("name").value.trim(),phone:$("phone").value.trim(),title:$("title").value.trim(),description:$("description").value.trim(),category:$("category").value,lat,lng,photo_url:photoUrl,status:"new"};
+      const {error}=await supabase.from("reports").insert(payload);
+      if(error) throw new Error(error.message);
+      notice(`Report submitted. Your reference code is ${ref}. Keep it safe to track progress.`);
+      $("report-form").reset(); await loadReports(); $("track-code").value=ref;
+      $("track-result").innerHTML=`<div class="report"><b>Your reference code: ${esc(ref)}</b><p>Save this code. You will need it to check your report.</p></div>`;
+    }catch(err){notice(err.message||"Something went wrong. Please try again.",true);}
+    finally{btn.disabled=false;btn.textContent="Submit report";}
+  });
+  $("track-btn").addEventListener("click",async()=>{
+    const ref=$("track-code").value.trim().toUpperCase(); if(!ref){$("track-result").innerHTML='<div class="empty">Enter your reference code.</div>';return;}
+    $("track-result").innerHTML='<div class="empty">Checking…</div>';
+    const {data,error}=await supabase.from("reports").select(safeFields).eq("ref",ref).maybeSingle();
+    if(error){$("track-result").innerHTML='<div class="empty">Unable to check this report. Please try again later.</div>';return;}
+    $("track-result").innerHTML=data?renderReport(data):'<div class="empty">No report found with that reference code. Check the code and try again.</div>';
+  });
+  $("refresh").addEventListener("click",loadReports);
+  loadReports();
+})();
+</script>
+</body>
+</html>
